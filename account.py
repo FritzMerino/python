@@ -37,13 +37,13 @@ class Account:
     def get_balance(self) -> int:
         """
         Method to get the person's balance account.
-        :return: It returns an integer
+        :return: It returns an integer.
         """
         return self.__account_balance
 
     def get_name(self) -> str:
         """
         Method to get the person's name.
-        :return: It returns a string
+        :return: It returns a string.
         """
         return self.__account_name
