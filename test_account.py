@@ -11,16 +11,15 @@ class Test:
         assert self.a1.get_balance() == 0
 
     def test_deposit(self):
-        assert self.a1.deposit(100) is True
-        assert self.a1.get_balance() == 100
-        assert self.a1.deposit(-100) is False
-        assert self.a1.get_balance() == 100
+        assert self.a1.deposit(-2) is False
+        assert self.a1.deposit(0) is False
+        assert self.a1.deposit(1) is True
+        assert self.a1.get_balance() == pytest.approx(1)
 
     def test_withdraw(self):
-        self.a1.deposit(150)
-        assert self.a1.withdraw(100) is True
-        assert self.a1.get_balance() == 50
-        assert self.a1.withdraw(-50) is False
-        assert self.a1.get_balance() == 50
-        assert self.a1.withdraw(51) is False
-        assert self.a1.get_balance() == 50
+        assert self.a1.withdraw(-2) is False
+        assert self.a1.withdraw(0) is False
+        assert self.a1.withdraw(1) is False
+        self.a1.deposit(5)
+        assert self.a1.withdraw(3) is True
+        assert self.a1.get_balance() == pytest.approx(2)
