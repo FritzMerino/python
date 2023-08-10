@@ -19,7 +19,7 @@ class Test:
     def test_withdraw(self):
         assert self.a1.withdraw(-2) is False
         assert self.a1.withdraw(0) is False
-        assert self.a1.withdraw(1) is False
-        self.a1.deposit(5)
-        assert self.a1.withdraw(3) is True
-        assert self.a1.get_balance() == pytest.approx(2)
+        self.a1.deposit(2)
+        assert self.a1.withdraw(3) is False
+        assert self.a1.withdraw(1) is True
+        assert self.a1.get_balance() == pytest.approx(1)
